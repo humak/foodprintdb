@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Dashboard</h1>
+    <p class="lead">Welcome <mark>{{session.name}}</mark>. You can view and edit your consumption records here.</p>
+{% if records %}
+    <table class="table table-striped">
+        <tr>
+            <th>Title</th>
+            <th>Consumption Number</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for record in records %}
+            <tr>
+                <td>{{record.title}}</td>
+                <td>{{record.consumptionnum}}</td>
+                <td><a href="/record/{{record.id}}" class="btn btn-secondary float-right">View Record</a></td>
+                <td><a href="/edit_record/{{record.id}}" class="btn btn-info">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+    <a class="btn btn-success" href="/create_record">Create New Record</a>
+{% endblock %}

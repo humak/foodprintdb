@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1 class="title">{{record.title}} {% if record.isprivate %}<i>(Private)</i>{% endif %}</h1>
+    <small>Created by {{username}} on {{record.create_date}}</small>
+    <hr>
+{% if not msg %}
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Meat Type</th>
+            <th>Portion</th>
+            <th>Amount (gr)</th>
+        </tr>
+        
+        {% for consumption in consumptions %}
+        <tr>
+                <td>{{consumption.id}}</td>
+                <td>{{consumption.title}}</td>
+                <td>{{consumption.meattype}}</td>
+                <td>{{consumption.portion}}</td>
+                <td>{{consumption.amount}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Produced CO2</th>
+            <th>Consumed Water</th>
+            <th>Used Land</th>
+        </tr>
+        
+        {% for result in results %}
+        <tr>
+                <td>{{result.consid}}</td>
+                <td>{{result.co2_usage}}</td>
+                <td>{{result.water_usage}}</td>
+                <td>{{result.land_usage}}</td>
+        </tr>
+        {% endfor %}   
+        
+    </table>
+
+{% endif %}
+
+<div class="row">
+    <div class="col">
+    </div>
+{% if record.comment %}
+    <div class="col-6">
+        <p class="lead">{{record.comment}}</p>
+    </div>
+{% endif %}
+
+
+
+</div>
+{% endblock %}

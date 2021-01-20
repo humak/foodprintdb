@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1 class="title">{{record.title}} {% if record.isprivate %}<i>(Private)</i>{% endif %}
+        <a href="/edit_record_info/{{record.id}}" class="btn btn-success btn-lg float-right">Edit Record Content</a>
+        <a href="/record/{{record.id}}" class="btn btn-info btn-lg float-right mr-1">View</a>
+</h1>
+
+    <form action="" method="POST" name="consumption_list">
+      <table class="table table-striped">
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Meat Type</th>
+                <th>Genre</th>
+                <th>Amount(gr)</th>
+                <th></th>
+            </tr>
+        {% for consumption in consumptions %}
+            <tr>
+              <td>
+                <label class="btn btn-danger">
+                  <input type="checkbox" name="consumption_ids" value="{{ consumption.id }}">
+                </label>
+              </td>
+                <td>{{consumption.title}}</td>
+                <td>{{ consumption.meattype }}</td>
+                <td>{{ consumption.portion }}</td>
+                <td>{{ consumption.amount }}</td>
+                <td><a href="/edit_consumption/{{ consumption.id }}" class="btn btn-info">Edit</a></td>
+            </tr>
+        {% endfor %}
+      </table>
+        <div>
+          <button class="btn btn-danger mr-1">Delete Selected Consumptions</button>
+          <a href="/add_consumption/{{record.id}}" class="btn btn-success">Add a Consumption</a>
+          <a href="/delete_record/{{record.id}}" class="btn btn-danger float-right">Delete This Consumption</a>
+        </div>
+    </form>
+    </div>
+{% endblock %}

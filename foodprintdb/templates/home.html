@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron text-center" >
+    <h1>Welcome!</h1>
+    <p class="lead">FoodPrint was specially designed users to easily add, view  and record the results of their food consumptions. </p>
+    {% if not session.logged_in %}
+    <div class="btn btn-group" >
+        <a class="btn btn-dark btn-lg mx-1" href="/register">Register</a>
+        <a class="btn btn-dark btn-lg" href="/login">Login</a>
+    </div>
+    {% endif %}
+</div>
+<div class="jumbotron text-center" >
+    <h3>Recently added records:</h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Title</th>
+            <th>Consumption Number</th>
+
+        </tr>
+        {% for record in records %}
+            <tr>
+                <td><a href="/record/{{record.id}}">{{record.title}}</a></td>
+                <td>{{record.consumptionnum}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

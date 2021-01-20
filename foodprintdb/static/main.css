@@ -1,0 +1,61 @@
+body {
+    background: #f6f9eb;
+    color: #e4eee2;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #242523;
+  }
+  
+  .bg-steel {
+    background-color: #586b38;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #242222;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #141513;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #0f0f0f
+  }
+  
+  .article-metadata a:hover {
+    color: rgb(15, 15, 15);
+    text-decoration: none;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
